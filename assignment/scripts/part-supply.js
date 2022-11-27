@@ -48,18 +48,46 @@ for (let i = 0; i < supplyChangesLength; i++) {
     
 
 // STRETCH GOALS
-console.log('---  Stretch Goals  ---');
+console.log( '---  Stretch Goals  ---' );
 // 7. Rewrite the `for` loop from #6 as a `for of` loop. 
-console.log('7. Showing supplyChanges with "for of" loop');
+console.log( '7. Showing supplyChanges with "for of" loop' );
+for (let indexSupplyChanges of supplyChanges ) {
+//    console.log(indexSupplyChanges); To check if working
+    if ( indexSupplyChanges > 0 ) {
+        console.log( 'Added', indexSupplyChanges, 'parts.' ); 
+    } else if ( indexSupplyChanges === 0 ) {
+        console.log( 'No change.' );
+    } else {
+        console.log( 'Removed', Math.abs( indexSupplyChanges ), 'parts.' )
+    }
+}
+    
 
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
-console.log('8. Total supplies available is:');
-
+console.log( '8. Total supplies available is:' );
+let totalParts = 0
+for ( let x = 0; x < supplyChanges.length; x++ ) {
+    totalParts += supplyChanges[ x ];
+}
+console.log( 'Total available supplies:', totalParts );
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
 //    There are 572 parts in total, and each box holds 7 parts.
 //    Use a `while` loop to keep adding parts to boxes until
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
-console.log('9. Filling boxes with a "while" loop');
+console.log( '9. Filling boxes with a "while" loop' );
+let parts2 = 572
+let boxes = 0
+let extraParts = 0
+let partsLeftover = parts2 % 7
+while ( parts2 > 0 ) {
+    if ( ( parts2 / 7 ) >= 1 ) {
+        boxes++;
+    }    
+        parts2 -= 7;
+}
+
+console.log( 'Total boxes filled:', boxes );
+console.log( 'Parts leftover after filling boxes:' , partsLeftover );
